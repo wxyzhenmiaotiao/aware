@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/lib/integration/react'
-import { store } from "./store"
-import Router from "./router"
-import "./style.less"
-import "./reset.css"
+import { store } from './store'
+import Router from './router'
+import './style.less'
+import './reset.css'
+import './rem.js'
 
 ReactDOM.render(
 	<Provider store={store}>
