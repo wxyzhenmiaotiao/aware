@@ -64,16 +64,10 @@ export function get(url, payload = {}) {
       params: payload
     })
       .then(response => {
-        const data = response.data
-        if (data.code === 200) {
-          resolve(data.data)
-
-        } else {
-          // reject(data) 
-        }
+        resolve(response)
       })
       .catch(err => {
-        // reject(err)
+        reject(err)
       })
   })
 }
