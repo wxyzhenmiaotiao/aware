@@ -1,10 +1,10 @@
 const stae1 = {
-	username : "",
+	name : "",
 }
 export default function users(state = stae1, action) {
 	switch (action.type) {
 		case 'LOGIN':
-			return { ...state }
+			return { ...state , name: action.payload.username }
 		default:
 			return state
 	}

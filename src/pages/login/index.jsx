@@ -35,12 +35,16 @@ export default class extends Component {
     })
   }
 
+  login = () => {
+    this.props.history.push('/login')
+  }
+
   render() {
     return (
       <div className="Login-box">
         <div className="childUrlheader">
           <p>ele.me</p>
-          <p><span>登陆</span>|<span>注册</span></p>
+          <p onClick={this.login}><span>登陆</span>|<span>注册</span></p>
         </div>
         <div className="childFlex-box">
           <div className="rowPosition">

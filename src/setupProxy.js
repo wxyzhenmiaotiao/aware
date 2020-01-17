@@ -3,7 +3,7 @@ const proxy = require('http-proxy-middleware');
 module.exports = function (app) {
 	app.use(
 		proxy('/api', {
-			target: 'https://blog.zdldove.top',
+			target: 'https://elm.cangdu.org',
 
 			changeOrigin: true,
 
