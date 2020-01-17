@@ -45,6 +45,27 @@ export function post(url, payload = {}) {
         const data = response.data
         if (data.code === 200) {
           resolve(data)
+        } else {
+          reject(data)
+        }
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}
+
+export function verification(url, payload = {}) {
+  return new Promise((resolve, reject) => {
+    axios({
+      method: 'post',
+      url,
+      data: payload
+    })
+      .then(response => {
+        const data = response.data
+        if (data.status === 1) {
+          resolve(data)
 
         } else {
           reject(data)
