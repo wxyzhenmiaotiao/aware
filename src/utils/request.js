@@ -43,11 +43,7 @@ export function post(url, payload = {}) {
     })
       .then(response => {
         const data = response.data
-        if (data.code === 200) {
-          resolve(data)
-        } else {
-          reject(data)
-        }
+        resolve(data)
       })
       .catch(err => {
         reject(err)
