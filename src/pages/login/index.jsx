@@ -10,7 +10,7 @@ export default class extends Component {
   }
   componentDidMount() {
     childone("type=group").then(res => {
-      let data = []
+      let data=[]
       for (let k in res.data) {
         data.push(k)
       }
@@ -23,19 +23,26 @@ export default class extends Component {
         a.name = v
         g.push(a)
       })
+      let guess=[]
       childone("type=guess").then(ttt => {
-        childone("type=hot").then(aaa => {
-          this.setState({
-            guess: ttt.data,
-            hot: aaa.data,
-            group: g
-          })
+        console.log(ttt)
+        guess=ttt.data
+        
+      })
+      childone("type=hot").then(aaa => {
+        this.setState({
+          guess:guess,
+          hot: aaa.data,
+          group: g
         })
       })
     })
   }
-
+  setchail=()=>{
+    console.log("=========")
+  }
   render() {
+    // console.log(this.state)
     return (
       <div className="Login-box">
         <div className="childUrlheader">
@@ -53,14 +60,14 @@ export default class extends Component {
           </div>
           <div className="positionBox">
             {
-              this.state.guess != "" ? <p>{this.state.guess.name}</p> : <p>正在获取位置</p>
+              this.state.guess != "" ? <p>{this.state.guess.name}</p> : <p className="dd">正在获取</p>
             }
             <p className="right">></p>
           </div>
           <div className="hotCity">
             <div className="hotP">热门城市</div>
             {
-              this.state.hot.length == 0 ? <div>加载数据中</div> : <div className="hotBopx">
+              this.state.hot.length == 0 ? <div className="loadingBody">加载数据中</div> : <div className="hotBopx">
                 {
                   this.state.hot.map(v => {
                     return <Childmodel {...this.props} key={v.id} name={v} />
