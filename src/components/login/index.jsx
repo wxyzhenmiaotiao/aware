@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import './styles.less'
 
 export default @connect(state => ({
-  name : state.name
+  
 }), {
   fetchLogin,
 })
@@ -53,7 +53,6 @@ class extends Component {
         captcha_code: captcha
       }
       this.props.fetchLogin(obj)
-      console.log(this.props.name)
     }
   }
 

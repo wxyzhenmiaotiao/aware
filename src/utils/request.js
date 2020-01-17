@@ -43,7 +43,37 @@ export function post(url, payload = {}) {
     })
       .then(response => {
         const data = response.data
-        resolve(data)
+        if (data.code === 200) {
+          resolve(data)
+
+        } else {
+          reject(data)
+        }
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}
+
+
+
+export function login(url, payload = {}) {
+  return new Promise((resolve, reject) => {
+    axios({
+      method: 'post',
+      url,
+      data: payload
+    })
+      .then(response => {
+        const data = response.data
+        if (data.status != 0) {
+          resolve(data)
+          alert('登录成功')
+        } else {
+          alert('登录失败')
+          reject(data)
+        }
       })
       .catch(err => {
         reject(err)
