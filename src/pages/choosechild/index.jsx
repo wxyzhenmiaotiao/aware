@@ -10,14 +10,14 @@ export default class componentName extends Component {
   componentDidMount() {
     this.disLocal()
   }
-  disLocal=()=>{
+  disLocal = () => {
     if (localStorage.getItem("history")) {
       this.setState({
         history: JSON.parse(localStorage.getItem("history"))
       })
-    }else{
+    } else {
       this.setState({
-        history:[]
+        history: []
       })
     }
   }
@@ -42,11 +42,10 @@ export default class componentName extends Component {
     city(v.geohash).then(res => {
       if (localStorage.getItem("history")) {
         let a = JSON.parse(localStorage.getItem("history"))
-        a.filter(k=>{
-          if(k.name===v.name)
-          {
+        a.filter(k => {
+          if (k.name === v.name) {
 
-          }else{
+          } else {
             a.push(v)
           }
         })
@@ -56,11 +55,15 @@ export default class componentName extends Component {
         a.push(v)
         localStorage.setItem("history", JSON.stringify(a))
       }
+      let url1 = res.data.latitude
+      let url2 = res.data.longitude
+      let url3 = "latitude=" + url1 + "&" + "longitude=" + url2
+      localStorage.setItem("childone", url3)
       localStorage.setItem("childname", res.data.name)
       this.props.history.push("/home")
     })
   }
-  clear=()=>{
+  clear = () => {
     localStorage.removeItem('history')
     this.disLocal()
   }
@@ -94,20 +97,20 @@ export default class componentName extends Component {
                 <p>搜索历史</p>
                 {
                   this.state.history.length != 0 ?
-                        <div className="listhistoy">
-                          {
-                            this.state.history.map((v, index) => {
-                              return <div key={index} onClick={() => this.jump(v)} className="addressRowtwo">
+                    <div className="listhistoy">
+                      {
+                        this.state.history.map((v, index) => {
+                          return <div key={index} onClick={() => this.jump(v)} className="addressRowtwo">
                             <span className="hone">{v.name}</span>
-                            <br/>
+                            <br />
                             <span>{v.address}</span>
-                              </div>
-                            })
-                          }
-                          <div className="deleteList" onClick={this.clear}>
-                            清空所有
                           </div>
-                        </div>
+                        })
+                      }
+                      <div className="deleteList" onClick={this.clear}>
+                        清空所有
+                          </div>
+                    </div>
                     : null
                 }
               </div>

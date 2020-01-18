@@ -14,6 +14,9 @@ export default class extends Component {
   }
   componentDidMount() {
     let a = this.props.location.pathname
+    this.feng(a)
+  }
+  feng = (a) => {
     switch (a) {
       case '/home/pagetwo':
         this.setState({
@@ -36,6 +39,10 @@ export default class extends Component {
         });
         break
     }
+  }
+  componentWillReceiveProps(s) {
+    let a = s.location.pathname
+    this.feng(a)
   }
   render() {
 
