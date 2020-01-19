@@ -53,6 +53,7 @@ class extends Component {
         captcha_code: captcha
       }
       this.props.fetchLogin(obj)
+      
     }
   }
 
