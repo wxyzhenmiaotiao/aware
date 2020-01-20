@@ -5,12 +5,20 @@ export default class extends Component {
   constructor(props){
     super(props)
     this.state={
-      image : "../../img/2.jpg"
+      image : "../image/2.jpg"
     }
   }
 
   loginBtn = () => {
     this.props.history.push('/login')
+  }
+
+  downloadBtn = () => {
+    this.props.history.push('/download')
+  }
+
+  service = ()=> {
+    this.props.history.push('/service')
   }
 
   render() {
@@ -31,7 +39,7 @@ export default class extends Component {
           </div>
           <div className="four_body_2_left">
             <p className="p1">登录/注册</p>
-            <p className="p2"><img src="../../img/1.jpg" alt=""/>暂无绑定手机号</p>
+            <p className="p2"><img src="../image/1.jpg" alt=""/>暂无绑定手机号</p>
           </div>
           <div className="four_body_2_right">
             →
@@ -72,11 +80,11 @@ export default class extends Component {
           </div>
         </div>
         <div className="four_body_5">
-          <div className="four_body_4_p">
+          <div onClick={this.service} className className="four_body_4_p">
             <p className="four_body_4_p_left">服务中心</p>
             <p className="four_body_4_p_right">></p>
           </div>
-          <div className="four_body_4_p">
+          <div onClick={this.downloadBtn} className="four_body_4_p">
             <p className="four_body_4_p_left">下载了饿了么APP</p>
             <p className="four_body_4_p_right">></p>
           </div>
