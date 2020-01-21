@@ -28,11 +28,24 @@ export default class extends Component {
     shop(localStorage.getItem("childone")).then(res=>{
       this.setState({
         shop:res.data
+      },()=>{
+        if(localStorage.getItem("scroll"))
+        {
+          let a=document.getElementsByClassName("one_body_flex")[0]
+          a.scrollTop=localStorage.getItem("scroll")
+        }
       })
     })
   }
   searchshop=()=>{
     this.props.history.push("/home/pagetwo")
+  }
+  users=()=>{
+    this.props.history.push("/home/pagefour")
+  }
+  scroll=(e)=>{
+    let value=e.target.scrollTop
+    localStorage.setItem("scroll",value)
   }
   render() {
     return (
@@ -44,9 +57,9 @@ export default class extends Component {
               localStorage.getItem("childname")
             }
           </div>
-          <p><Icon type="user" /></p>
+          <p onClick={this.users}><Icon type="user" /></p>
         </div>
-        <div className="one_body_flex">
+        <div className="one_body_flex" onScroll={this.scroll}>
           <div className="lunbox">
             <Carousel>
               {
@@ -81,7 +94,7 @@ export default class extends Component {
                    正在拼命加载中
                  </span>
                </div>: this.state.shop.map((v,index)=>{
-                  return <Shoplist key={index} data={v} />
+                  return <Shoplist {...this.props} key={index} data={v} />
                 })
               }
           </div>

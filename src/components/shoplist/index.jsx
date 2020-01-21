@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
 import Start from "@/components/start"
+import { xiang } from "@/api/actions"
 import "./style.less"
 export default class componentName extends Component {
+  chuan=(v)=>{
+    
+    xiang(v.id).then(res=>{
+      let a={}
+      a.one=v
+      a.two=res.data
+      localStorage.setItem("data",JSON.stringify(a))
+      this.props.history.push("/Product")
+    })
+  }
   render() {
     const data = this.props.data
     let fonts = ""
@@ -9,7 +20,7 @@ export default class componentName extends Component {
       fonts += k.icon_name
     })
     return (
-      <dl className="listRow">
+      <dl className="listRow" onClick={()=>this.chuan(data)}>
         <dt>
           <img src={"//elm.cangdu.org/img/" + data.image_path} alt="" />
         </dt>
