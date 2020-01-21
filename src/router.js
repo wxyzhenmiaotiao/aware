@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import 'antd/dist/antd.less'
-import { Home , Login, Choosechild, Logindefs , Product} from "@/utils/routersLoader"
+import { Home , Login, Choosechild, Logindefs, Download, Service , Product} from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
 		return (
@@ -9,6 +9,8 @@ export default class extends Component {
 				<BrowserRouter>
 					<Switch>
 						<Route path='/Product' component={Product} />
+						<Route path='/service' component={Service} />
+						<Route path='/download' component={Download} />
 						<Route path='/login' component={Logindefs} />
 						<Route path='/home' component={Home} />
 						<Route path='/choose/:id' component={Choosechild} />
