@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Icon } from "antd"
 import { Switch, Route, Link } from 'react-router-dom'
-import { Producttwo , Productone } from "@/utils/routersLoader"
+import { Producttwo, Productone } from "@/utils/routersLoader"
 import "./style.less"
 export default class componentName extends Component {
   state = {
@@ -11,7 +11,7 @@ export default class componentName extends Component {
     a: ["spanClick", "spanClicknone"]
   }
   componentDidMount() {
-    let a=JSON.parse(localStorage.getItem("data"))
+    let a = JSON.parse(localStorage.getItem("data"))
     this.setState({
       data1: a.one,
       data2: a.two
@@ -145,18 +145,18 @@ export default class componentName extends Component {
             <p onClick={() => this.setcliak(0)}>
               <span className={this.state.a[0]} >
                 <Link to="/Product/">商品</Link>
-                  </span>
+              </span>
             </p>
             <p onClick={() => this.setcliak(1)}>
               <span className={this.state.a[1]} >
-              <Link to="/Product/two">评价</Link>
+                <Link to="/Product/two">评价</Link>
 
-                </span>
+              </span>
             </p>
           </div>
           <Switch>
-            <Route path="/Product/two" component={Producttwo}/>
-            <Route path="/Product/" component={Productone}/>
+            <Route path="/Product/two" component={Producttwo} />
+            <Route path="/Product/" component={Productone} />
           </Switch>
         </div>
       </div> : null

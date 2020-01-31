@@ -15,29 +15,69 @@ export default class componentName extends Component {
     console.log(data)
     return (
       <div className="bxoaaaa">
-        <div className="shangtop">
-         {/* <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/>
-         <p>asssssssssssss</p><br/> */}
+        <div className="shangTop">
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
+        <p>asdasd</p>
         </div>
-        <div className="xiaBox">
-          
+        <div className="lastMoney">
+
         </div>
       </div>
     )
