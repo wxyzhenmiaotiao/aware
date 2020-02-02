@@ -11,4 +11,5 @@ export const Pagethree = loadable(() => import('@/components/pagethree'))//第�
 export const Pagefour = loadable(() => import('@/components/pagefour'))//第四个页面
 export const Logindefs = loadable(() => import('@/components/login'))//登录页面
 export const Download = loadable(() => import('@/components/download'))//下载页面
+export const Details = loadable(() => import('@/components/details'))//商家详情
 export const Service = loadable(() => import('@/components/service'))//下载页面

@@ -5,5 +5,6 @@ export default {
 	fenlei:"https://elm.cangdu.org/v2/index_entry",//商品分类
 	shop:"https://elm.cangdu.org/shopping/restaurants",//附近商家
 	searchshop:"https://elm.cangdu.org/v4/restaurants",//搜索餐馆
-	xiangxi:"https://elm.cangdu.org/shopping/v2/menu?restaurant_id=",//商家详情
+	xiangxi:"https://elm.cangdu.org/shopping/v2/menu?restaurant_id=",//商品详情
+	xiangqing:"https://elm.cangdu.org/shopping/restaurant/",//商家详情
 }

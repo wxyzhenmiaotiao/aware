@@ -11,6 +11,13 @@ export default class componentName extends Component {
     a: ["spanClick", "spanClicknone"]
   }
   componentDidMount() {
+    console.log(this.props.location.pathname)
+    if(this.props.location.pathname=="/Product/two")
+    {
+      this.setState({
+        a:["spanClicknone","spanClick"]
+      })
+    }
     let a = JSON.parse(localStorage.getItem("data"))
     this.setState({
       data1: a.one,
@@ -42,6 +49,10 @@ export default class componentName extends Component {
         a: a
       })
     }
+  }
+  xiangxi=()=>{
+    localStorage.setItem("shopid",JSON.parse(localStorage.getItem("data")).one.id)
+    this.props.history.push("/Details")
   }
   render() {
     return (
@@ -98,7 +109,7 @@ export default class componentName extends Component {
           <div className="pasositi">
           </div>
           <dl className="header_sideBox">
-            <p className="backgding">
+            <p className="backgding" onClick={this.xiangxi}>
               <Icon type="right" />
             </p>
             <p className="backDing" onClick={this.back}>

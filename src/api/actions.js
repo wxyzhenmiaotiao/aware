@@ -22,3 +22,6 @@ export function searchshop(data) {//搜索商品
 export function xiang(data) {//商品详情
 	return get(api.xiangxi+""+data)
 }
+export function xiangxi(data) {//商家详情
+	return get(api.xiangqing+""+data)
+}
