@@ -12,3 +12,4 @@ export const Pagefour = loadable(() => import('@/components/pagefour'))//第四�
 export const Logindefs = loadable(() => import('@/components/login'))//登录页面
 export const Download = loadable(() => import('@/components/download'))//下载页面
 export const Service = loadable(() => import('@/components/service'))//下载页面
+export const Fu = loadable(() => import('@/components/fu'))//下载页面

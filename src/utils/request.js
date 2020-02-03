@@ -34,25 +34,16 @@ import axios from 'axios'
 //   return Promise.reject(error)
 // })
 
-export function post(url, payload = {}) {
+export function post(url, action = {}) {
   return new Promise((resolve, reject) => {
     axios({
-      method: 'post',
+      method: 'POST',
+      baseURL: '/api',
       url,
-      data: payload
+      data: action,
     })
-      .then(response => {
-        const data = response.data
-        if (data.code === 200) {
-          resolve(data)
-
-        } else {
-          reject(data)
-        }
-      })
-      .catch(err => {
-        reject(err)
-      })
+      .then(res => resolve(res))
+      .catch(err => reject(err))
   })
 }
 

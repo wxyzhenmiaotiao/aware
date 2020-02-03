@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { verification } from '@/utils/request'
+import { post,verification } from '@/utils/request'
 import { fetchLogin } from '@/actions/login'
 import { connect } from 'react-redux'
 import './styles.less'
+import qs from 'qs'
+import { message } from 'antd';
 
 export default @connect(state => ({
   
@@ -15,7 +17,8 @@ class extends Component {
     this.state = {
       verificationImg: "",
       username: "",
-      password: ""
+      password: "",
+      captcha: ""
     }
     verification('api/v1/captchas').then(res => {
       this.setState({
@@ -45,15 +48,29 @@ class extends Component {
   btnLogin = () => {
     const { username, password, captcha } = this.state
     if(username === "" || password === "" || captcha === ""){
-      alert('输入为空')
+      message.info('输入为空')
     }else{
       let obj = {
         username: username,
         password: password,
         captcha_code: captcha
       }
-      this.props.fetchLogin(obj)
-      
+      post('/v2/login',qs.stringify(obj)).then(res => {
+        console.log(res)
+        if(res.data.username){
+          message.info('登录成功')
+          localStorage.setItem('user_id',res.data.user_id)
+          this.props.history.push('/home')
+          fetchLogin(res.data)
+        }else{
+          message.info('登录失败')
+          verification('api/v1/captchas').then(res => {
+            this.setState({
+              verificationImg: res.code
+            })
+          })
+        }
+      })
     }
   }
 
