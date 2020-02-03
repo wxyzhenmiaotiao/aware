@@ -1,4 +1,4 @@
-import { get } from '@/utils/request'
+import { get , post} from '@/utils/request'
 import api from './api'
 
 export function childone(data) {
@@ -24,4 +24,7 @@ export function xiang(data) {//商品详情
 }
 export function xiangxi(data) {//商家详情
 	return get(api.xiangqing+""+data)
+}
+export function addshop(data) {//加入购物车
+	return post(api.addshop,data)
 }
