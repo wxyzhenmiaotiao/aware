@@ -12,5 +12,9 @@ export default {
 =======
 	xiangxi:"https://elm.cangdu.org/shopping/v2/menu?restaurant_id=",//商品详情
 	xiangqing:"https://elm.cangdu.org/shopping/restaurant/",//商家详情
+<<<<<<< HEAD
 >>>>>>> ff2ad426443483e7ddf081dc4a627db87b4fe254
+=======
+	addshop:"https://elm.cangdu.org/v1/carts/checkout",//加入购物车
+>>>>>>> b4a3a608d1e0cd4e910ebf3d79cc11d7667d6c80
 }

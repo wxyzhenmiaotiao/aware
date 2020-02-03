@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import { Icon } from "antd"
+import { addshop } from "@/api/actions"
 import "./style.less"
 export default class componentName extends Component {
   state = {
     data: [],
-    classname: []
+    classname: [],
+    id:""
   }
   componentDidMount() {
     let a = JSON.parse(localStorage.getItem("data"))
     this.setState({
-      data: a.two
+      data: a.two,
+      id:a.one.id
     })
   }
   top=(v)=>{
@@ -22,6 +25,9 @@ export default class componentName extends Component {
         b.scrollTop=a[i].offsetTop
       }
     }
+  }
+  add=(v)=>{
+    console.log(v)
   }
   render() {
     const { data } = this.state
@@ -56,7 +62,8 @@ export default class componentName extends Component {
                             <p className="cccccccc">月销售{k.month_sales}份 好评率{k.satisfy_rate}%</p>
                             <p className="lastPirbox"><span><span className="lastPirboxspanone">¥20</span>起</span><span className="lastPirboxiop">
                                   {
-                                    k.specifications.length!=0?<span className="guigee">规格</span>:<Icon type="plus-circle" style={{fontSize:"0.3rem"}}/>
+                                    k.specifications.length!=0?<span className="guigee">规格</span>:<Icon 
+                                    onClick={()=>this.add(k)} type="plus-circle" style={{fontSize:"0.3rem"}}/>
                                   }
                               </span></p>
                           </dd>
@@ -73,7 +80,15 @@ export default class componentName extends Component {
           </div>
         </div>
         <div className="lastMoney">
-
+                <div className="lastMoneyflex">
+                  <p>
+                    ¥ <span>0.00</span>  
+                  </p>
+                  <p>配送费¥5</p>
+                </div>
+                <div className="lastMoneyjiesuan">
+                  去结算
+                </div>
         </div>
       </div>
     )

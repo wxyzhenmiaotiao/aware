@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { get, post } from '@/utils/request'
+=======
+import { get , post} from '@/utils/request'
+>>>>>>> b4a3a608d1e0cd4e910ebf3d79cc11d7667d6c80
 import api from './api'
 
 export function childone(data) {
@@ -32,4 +36,7 @@ export function login() {//服务中心
 export function xiangxi(data) {//商家详情
 	return get(api.xiangqing+""+data)
 >>>>>>> ff2ad426443483e7ddf081dc4a627db87b4fe254
+}
+export function addshop(data) {//加入购物车
+	return post(api.addshop,data)
 }

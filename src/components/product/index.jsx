@@ -11,7 +11,6 @@ export default class componentName extends Component {
     a: ["spanClick", "spanClicknone"]
   }
   componentDidMount() {
-    console.log(this.props.location.pathname)
     if(this.props.location.pathname=="/Product/two")
     {
       this.setState({

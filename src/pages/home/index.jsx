@@ -30,7 +30,7 @@ export default class extends Component {
         break;
       case '/home/pagefour':
         this.setState({
-          selectedTab: 'yrllowTab',
+          selectedTab: 'yellowTab',
         });
         break;
       default:
