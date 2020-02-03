@@ -4,7 +4,6 @@ import { xiang } from "@/api/actions"
 import "./style.less"
 export default class componentName extends Component {
   chuan=(v)=>{
-    
     xiang(v.id).then(res=>{
       let a={}
       a.one=v

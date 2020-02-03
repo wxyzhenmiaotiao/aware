@@ -22,9 +22,14 @@ export function searchshop(data) {//搜索商品
 export function xiang(data) {//商品详情
 	return get(api.xiangxi+""+data)
 }
+<<<<<<< HEAD
 export function xin() {//服务中心
 	return get(api.zhongxi)
 }
 export function login() {//服务中心
 	return get(api.login)
+=======
+export function xiangxi(data) {//商家详情
+	return get(api.xiangqing+""+data)
+>>>>>>> ff2ad426443483e7ddf081dc4a627db87b4fe254
 }
