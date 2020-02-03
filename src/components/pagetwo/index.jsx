@@ -113,7 +113,7 @@ export default class extends Component {
               <div>
                 <p className="histp">商家</p>{
                   this.state.searchdata.map((v, index) => {
-                    return <Search key={index} data={v} />
+                    return <Search key={index} data={v} {...this.props} />
                   })
                 }
               </div> : this.state.historydata.length == 0 ? null : <div>

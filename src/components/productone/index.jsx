@@ -29,6 +29,10 @@ export default class componentName extends Component {
   add=(v)=>{
     console.log(v)
   }
+  jumpXing=(v)=>{
+    this.props.history.push("/Shopone")
+    localStorage.setItem("shopone",JSON.stringify(v))
+  }
   render() {
     const { data } = this.state
     return (
@@ -52,8 +56,8 @@ export default class componentName extends Component {
                     </p>
                     {
                       v.foods.map((k, i) => {
-                        return <dl key={i} className="shoponennn">
-                          <dt>
+                        return <dl key={i} className="shoponennn" >
+                          <dt onClick={()=>this.jumpXing(k)}>
                             <img src={"//elm.cangdu.org/img/" + k.image_path} alt="" />
                           </dt>
                           <dd>
@@ -62,7 +66,7 @@ export default class componentName extends Component {
                             <p className="cccccccc">月销售{k.month_sales}份 好评率{k.satisfy_rate}%</p>
                             <p className="lastPirbox"><span><span className="lastPirboxspanone">¥20</span>起</span><span className="lastPirboxiop">
                                   {
-                                    k.specifications.length!=0?<span className="guigee">规格</span>:<Icon 
+                                    k.specifications.length!=0?<span onClick={()=>this.add(k)}className="guigee">规格</span>:<Icon 
                                     onClick={()=>this.add(k)} type="plus-circle" style={{fontSize:"0.3rem"}}/>
                                   }
                               </span></p>
