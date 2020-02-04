@@ -25,7 +25,6 @@ export default class extends Component {
       })
       let guess=[]
       childone("type=guess").then(ttt => {
-        console.log(ttt)
         guess=ttt.data
         
       })

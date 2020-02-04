@@ -24,7 +24,7 @@ export default class componentName extends Component {
     })
   }
   back = () => {
-    this.props.history.push("/home")
+    this.props.history.go(-1)
   }
   close = () => {
     this.setState({
@@ -51,7 +51,7 @@ export default class componentName extends Component {
   }
   xiangxi=()=>{
     localStorage.setItem("shopid",JSON.parse(localStorage.getItem("data")).one.id)
-    this.props.history.push("/Details")
+    this.props.history.go("/Details")
   }
   render() {
     return (
