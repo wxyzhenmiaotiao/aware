@@ -147,18 +147,23 @@ export default class componentName extends Component {
       })
     }
   }
-  del = (id) => {
-    let data = JSON.parse(localStorage.getItem("shopcart"))
-    let arr = []
-    data.filter(v => {
-      if (v.shopid != id) {
-        arr.push(v)
-      }
-    })
-    localStorage.setItem("shopcart", JSON.stringify(arr))
-    this.componentDidMount()
-    this.dis()
-    this.suan(id)
+  del = (shop) => {
+    if (shop[0]) {
+      let data = JSON.parse(localStorage.getItem("shopcart"))
+      let arr = []
+      let id=shop[0].shopcartlist.id
+      data.filter(v => {
+        if (v.shopid != id) {
+          arr.push(v)
+        }
+      })
+      localStorage.setItem("shopcart", JSON.stringify(arr))
+      this.componentDidMount()
+      this.dis()
+      this.suan(id)
+    }else{
+      this.dis()
+    }
   }
   addmoney = (name, id) => {
     let data = JSON.parse(localStorage.getItem("shopcart"))
@@ -194,7 +199,6 @@ export default class componentName extends Component {
     localStorage.setItem("shopcart", JSON.stringify(data))
     this.componentDidMount()
     this.suan(id)
-
   }
   render() {
     const { data, shopcart } = this.state
@@ -209,7 +213,7 @@ export default class componentName extends Component {
             <div className="listcart" >
               <p>
                 <span className="cartspan1">购物车</span>
-                <span className="cartspan2" onClick={() => this.del(shopcart[0].shopid)}>清空</span>
+                <span className="cartspan2" onClick={() => this.del(shopcart)}>清空</span>
               </p>
               {
                 shopcart.length != 0 ? shopcart[0].shopcartlist.map((v, i) => {
