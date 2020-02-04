@@ -202,7 +202,6 @@ export default class componentName extends Component {
   }
   render() {
     const { data, shopcart } = this.state
-    console.log(shopcart[0])
     return (
       <div className="bxoaaaa">
         <div className="shangTop">
