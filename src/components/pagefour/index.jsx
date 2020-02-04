@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import { Icon } from "antd"
 import './styles.less'
+import { connect } from 'react-redux'
 
-export default class extends Component {
+export default @connect(state => {
+  return {
+    name: state.username,
+  }
+})
+class extends Component {
   constructor(props) {
     super(props)
     this.state={
@@ -20,6 +26,10 @@ export default class extends Component {
 
   service = ()=> {
     this.props.history.push('/service')
+  }
+
+  balance = () => {
+    this.props.history.push('/balance')
   }
 
   render() {
@@ -47,7 +57,7 @@ export default class extends Component {
           </div>
         </div>
         <div className="four_body_3">
-          <div className="four_body_3_1">
+          <div className="four_body_3_1" onClick={this.balance}>
             <div className="four_body_3_1_p1">
               <p><span className="four_body_3_1_p1_yuan">0.00</span>元</p>
               <p>我的余额</p>
