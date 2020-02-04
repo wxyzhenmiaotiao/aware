@@ -151,7 +151,7 @@ export default class componentName extends Component {
     if (shop[0]) {
       let data = JSON.parse(localStorage.getItem("shopcart"))
       let arr = []
-      let id=shop[0].shopcartlist.id
+      let id=shop[0].shopid
       data.filter(v => {
         if (v.shopid != id) {
           arr.push(v)
