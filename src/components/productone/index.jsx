@@ -55,27 +55,22 @@ export default class componentName extends Component {
       }
     }
   }
-  // dispnone=()=>{
-  //   if(num==0)
-  //   {
-  //     this.setState({
-  //       dis:"none"
-  //     })
-  //   }
-  // }
   suan = (id) => {
-    let data = JSON.parse(localStorage.getItem("shopcart"))
-    let sum = 0
-    data.filter(v => {
-      if (v.shopid == id) {
-        v.shopcartlist.filter(k => {
-          sum += k.shuliang * 20
-        })
-      }
-    })
-    this.setState({
-      pir: sum
-    })
+    if (localStorage.getItem("shopcart")) {
+      let data = JSON.parse(localStorage.getItem("shopcart"))
+      let sum = 0
+      data.filter(v => {
+        if (v.shopid == id) {
+          v.shopcartlist.filter(k => {
+            sum += k.shuliang * 20
+          })
+        }
+      })
+      this.setState({
+        pir: sum
+      })
+    }
+
   }
   add = (v) => {
     let a = JSON.parse(localStorage.getItem("data"))
