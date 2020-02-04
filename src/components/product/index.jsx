@@ -51,7 +51,7 @@ export default class componentName extends Component {
   }
   xiangxi=()=>{
     localStorage.setItem("shopid",JSON.parse(localStorage.getItem("data")).one.id)
-    this.props.history.go("/Details")
+    this.props.history.push("/Details")
   }
   render() {
     return (

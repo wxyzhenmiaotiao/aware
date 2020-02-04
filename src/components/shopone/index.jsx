@@ -55,14 +55,17 @@ export default class componentName extends Component {
             </div>
         </div>
         <div className="lastMoney">
-                <div className="lastMoneyflex">
-                  <p>
-                    ¥ <span>0.00</span>  
-                  </p>
-                  <p>配送费¥5</p>
-                </div>
-                <div className="lastMoneyjiesuan">
-                  去结算
+          <div className="lastMoneyflex">
+            <Icon type="shopping-cart" className="endIcon"/>
+            <div className="lastMoneyflexbbbiox">
+              <p>
+                ¥ <span>0.00</span>
+              </p>
+              <p>配送费¥5</p>
+            </div>
+          </div>
+          <div className="lastMoneyjiesuan">
+            去结算
                 </div>
         </div>
       </div>
