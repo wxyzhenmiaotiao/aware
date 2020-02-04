@@ -14,3 +14,4 @@ export const Download = loadable(() => import('@/components/download'))//下载�
 export const Details = loadable(() => import('@/components/details'))//商家详情
 export const Service = loadable(() => import('@/components/service'))//下载页面
 export const Fu = loadable(() => import('@/components/fu'))//下载页面
+export const Balance = loadable(() => import('@/components/balance'))//下载页面

@@ -39,6 +39,14 @@ export default class extends Component {
     })
   }
 
+  buttons = () => {
+    if(localStorage.getItem('user_id')){
+      return <img src="image/6.jpg" />
+    }else{
+      return <p><span>登陆</span>|<span>注册</span></p>
+    }
+  }
+
   login = () => {
     this.props.history.push('/login')
   }
@@ -49,7 +57,7 @@ export default class extends Component {
       <div className="Login-box">
         <div className="childUrlheader">
           <p>ele.me</p>
-          <p onClick={this.login}><span>登陆</span>|<span>注册</span></p>
+          <p onClick={this.login}>{this.buttons()}</p>
         </div>
         <div className="childFlex-box">
           <div className="rowPosition">

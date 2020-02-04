@@ -42,17 +42,8 @@ export function post(url, action = {}) {
       url,
       data: action,
     })
-<<<<<<< HEAD
       .then(res => resolve(res))
       .catch(err => reject(err))
-=======
-    .then(response => {
-      resolve(response)
-    })
-    .catch(err => {
-      reject(err)
-    })
->>>>>>> b4a3a608d1e0cd4e910ebf3d79cc11d7667d6c80
   })
 }
 

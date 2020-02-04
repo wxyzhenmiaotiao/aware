@@ -6,9 +6,9 @@ import './styles.less'
 import qs from 'qs'
 import { message } from 'antd';
 
-export default @connect(state => ({
+export default @connect(state => {
   
-}), {
+}, {
   fetchLogin,
 })
 class extends Component {
@@ -56,12 +56,15 @@ class extends Component {
         captcha_code: captcha
       }
       post('/v2/login',qs.stringify(obj)).then(res => {
-        console.log(res)
         if(res.data.username){
           message.info('登录成功')
           localStorage.setItem('user_id',res.data.user_id)
-          this.props.history.push('/home')
-          fetchLogin(res.data)
+          this.props.fetchLogin(res.data)
+          if(localStorage.getItem('childname')){
+            this.props.history.push('/home')
+          }else{
+            this.props.history.push('/')
+          }
         }else{
           message.info('登录失败')
           verification('api/v1/captchas').then(res => {
