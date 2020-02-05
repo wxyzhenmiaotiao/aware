@@ -16,3 +16,6 @@ export const Service = loadable(() => import('@/components/service'))//下载页
 export const Shopone = loadable(() => import('@/components/shopone'))//单个商品信息介绍页面
 export const Fu = loadable(() => import('@/components/fu'))//下载页面
 export const Balance = loadable(() => import('@/components/balance'))//下载页面
+export const Personal = loadable(() => import('@/components/personal'))//账户信息
+export const Modify = loadable(() => import('@/components/modify'))//修改用户名
+export const CreateGoods = loadable(() => import('@/components/createGoods'))//收货地址

@@ -5,26 +5,31 @@ import { connect } from 'react-redux'
 
 export default @connect(state => {
   return {
-    name: state.username,
+    data: state.user.username,
   }
 })
 class extends Component {
   constructor(props) {
     super(props)
-    this.state={
-      image : "../image/2.jpg"
+    console.log(this.props.data)
+    this.state = {
+      image: "../image/2.jpg"
     }
   }
 
   loginBtn = () => {
-    this.props.history.push('/login')
+    if(localStorage.getItem('user_id')){
+      this.props.history.push('/personal')
+    }else{
+      this.props.history.push('/login')
+    }
   }
 
   downloadBtn = () => {
     this.props.history.push('/download')
   }
 
-  service = ()=> {
+  service = () => {
     this.props.history.push('/service')
   }
 
@@ -32,8 +37,42 @@ class extends Component {
     this.props.history.push('/balance')
   }
 
-  render() {
+  loginHou = () => {
     const { image } = this.state
+    if (localStorage.getItem('user_id')) {
+      return (
+        <div onClick={this.loginBtn} className="four_body_2">
+          <div className="four_body_2_img">
+            <img src={image} alt="" />
+          </div>
+          <div className="four_body_2_left">
+            <p className="p1">{this.props.data.username}</p>
+            <p className="p2"><img src="../image/1.jpg" alt="" />暂无绑定手机号</p>
+          </div>
+          <div className="four_body_2_right">
+            →
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div onClick={this.loginBtn} className="four_body_2">
+          <div className="four_body_2_img">
+            <img src={image} alt="" />
+          </div>
+          <div className="four_body_2_left">
+            <p className="p1">登录/注册</p>
+            <p className="p2"><img src="../image/1.jpg" alt="" />暂无绑定手机号</p>
+          </div>
+          <div className="four_body_2_right">
+            →
+          </div>
+        </div>
+      )
+    }
+  }
+
+  render() {
     return (
       <div className="four_body">
         <div className="four_body_1">
@@ -44,18 +83,7 @@ class extends Component {
             我的
           </div>
         </div>
-        <div onClick={this.loginBtn} className="four_body_2">
-          <div className="four_body_2_img">
-            <img src={image} alt="" />
-          </div>
-          <div className="four_body_2_left">
-            <p className="p1">登录/注册</p>
-            <p className="p2"><img src="../image/1.jpg" alt=""/>暂无绑定手机号</p>
-          </div>
-          <div className="four_body_2_right">
-            →
-          </div>
-        </div>
+        {this.loginHou()}
         <div className="four_body_3">
           <div className="four_body_3_1" onClick={this.balance}>
             <div className="four_body_3_1_p1">
