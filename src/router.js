@@ -1,13 +1,30 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import 'antd/dist/antd.less'
-import { Home , Login, Choosechild, Logindefs, Download, Details ,Fu ,Service , Product, Balance, Shopone, Personal, Modify, CreateGoods} from "@/utils/routersLoader"
+import { 
+	Home , 
+	Login, 
+	Choosechild, 
+	Logindefs, 
+	Download,
+	Details,
+	Fu,
+	Service,
+	Product, 
+	Balance, 
+	Shopone, 
+	Personal, 
+	Modify, 
+	CreateGoods,
+	Address
+} from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
 		return (
 			<>
 				<BrowserRouter>
 					<Switch>
+						<Route path='/address' component={Address} />
 						<Route path='/createGoods' component={CreateGoods} />
 						<Route path='/modify' component={Modify} />
 						<Route path='/personal' component={Personal} />

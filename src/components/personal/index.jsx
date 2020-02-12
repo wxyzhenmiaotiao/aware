@@ -16,6 +16,9 @@ class extends Component {
   yong = () => {
     this.props.history.push('/modify')
   }
+  mobile = () => {
+    
+  }
 
   render() {
     return (
@@ -53,7 +56,7 @@ class extends Component {
             账号绑定
           </div>
           <div className="loginName">
-            <div className="loginName_left">
+            <div onClick={this.mobile} className="loginName_left">
               <img src="image/9.jpg" alt=""/>手机
             </div>
             <div className="loginName_right">
