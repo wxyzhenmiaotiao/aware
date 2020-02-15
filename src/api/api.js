@@ -10,4 +10,5 @@ export default {
 	xiangxi:"https://elm.cangdu.org/shopping/v2/menu?restaurant_id=",//商品详情
 	xiangqing:"https://elm.cangdu.org/shopping/restaurant/",//商家详情
 	addshop:"https://elm.cangdu.org/v1/carts/checkout",//加入购物车
+	evaluate:"https://elm.cangdu.org/ugc/v2/restaurants/",//评价的分数
 }

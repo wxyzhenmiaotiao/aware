@@ -34,3 +34,12 @@ export function xiangxi(data) {//商家详情
 export function addshop(data) {//加入购物车
 	return post(api.addshop,data)
 }
+export function evaluafen(data){//获取评价的分数
+	return get(api.evaluate+""+data+"/ratings/scores")
+}
+export function evalualei(data){//获取评价的种类
+	return get(api.evaluate+""+data+"/ratings/tags")
+}
+export function evalualist(data,data1,data2){//获取评价的信息列表
+	return get(api.evaluate+""+data+"/ratings?offset="+data1+"&limit="+data2+"&has_content=true")
+}
