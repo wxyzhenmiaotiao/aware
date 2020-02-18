@@ -37,6 +37,10 @@ class extends Component {
     this.props.history.push('/balance')
   }
 
+  menber = () => {
+    this.props.history.push('/menber')
+  }
+
   loginHou = () => {
     const { image } = this.state
     if (localStorage.getItem('user_id')) {
@@ -46,7 +50,7 @@ class extends Component {
             <img src={image} alt="" />
           </div>
           <div className="four_body_2_left">
-            <p className="p1">{this.props.data.username}</p>
+            <p className="p1">{this.props.data}</p>
             <p className="p2"><img src="../image/1.jpg" alt="" />暂无绑定手机号</p>
           </div>
           <div className="four_body_2_right">
@@ -113,7 +117,7 @@ class extends Component {
             <p className="four_body_4_p_left">积分商城</p>
             <p className="four_body_4_p_right">></p>
           </div>
-          <div className="four_body_4_p">
+          <div className="four_body_4_p" onClick={this.menber}>
             <p className="four_body_4_p_left">饿了么会员卡</p>
             <p className="four_body_4_p_right">></p>
           </div>

@@ -16,7 +16,8 @@ import {
 	Personal, 
 	Modify, 
 	CreateGoods,
-	Address
+	Address,
+	Menber
 } from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
@@ -24,6 +25,7 @@ export default class extends Component {
 			<>
 				<BrowserRouter>
 					<Switch>
+						<Route path='/menber' component={Menber} />
 						<Route path='/address' component={Address} />
 						<Route path='/createGoods' component={CreateGoods} />
 						<Route path='/modify' component={Modify} />

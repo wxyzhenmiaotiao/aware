@@ -19,4 +19,5 @@ export const Balance = loadable(() => import('@/components/balance'))//下载页
 export const Personal = loadable(() => import('@/components/personal'))//账户信息
 export const Modify = loadable(() => import('@/components/modify'))//修改用户名
 export const CreateGoods = loadable(() => import('@/components/createGoods'))//收货地址
-export const Address = loadable(() => import('@/components/address'))//收货地址
+export const Address = loadable(() => import('@/components/address'))//收货地址menber
+export const Menber = loadable(() => import('@/components/menber'))//会员
