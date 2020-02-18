@@ -145,9 +145,14 @@ export default class componentName extends Component {
               <p>配送费¥5</p>
             </div>
           </div>
-          <div className="lastMoneyjiesuan">
+          {
+            this.state.pir>=20?<div className="lastMoneyjiesuan">
             去结算
-                </div>
+                </div>:<div className="qisong">
+                  还差20起送
+          </div>
+          }
+          
         </div>
       </div>
     )
