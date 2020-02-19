@@ -17,7 +17,9 @@ import {
 	Modify, 
 	CreateGoods,
 	Address,
-	Menber
+	Menber,
+	Meming,
+	Buy
 } from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
@@ -25,6 +27,8 @@ export default class extends Component {
 			<>
 				<BrowserRouter>
 					<Switch>
+						<Route path='/buy' component={Buy} />
+						<Route path='/meming' component={Meming} />
 						<Route path='/menber' component={Menber} />
 						<Route path='/address' component={Address} />
 						<Route path='/createGoods' component={CreateGoods} />

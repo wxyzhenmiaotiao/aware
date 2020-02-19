@@ -21,3 +21,5 @@ export const Modify = loadable(() => import('@/components/modify'))//修改用�
 export const CreateGoods = loadable(() => import('@/components/createGoods'))//收货地址
 export const Address = loadable(() => import('@/components/address'))//收货地址menber
 export const Menber = loadable(() => import('@/components/menber'))//会员
+export const Meming = loadable(() => import('@/components/meming'))//会员说明
+export const Buy = loadable(() => import('@/components/buy'))//会员购买
