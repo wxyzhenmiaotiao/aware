@@ -23,3 +23,4 @@ export const Address = loadable(() => import('@/components/address'))//收货地
 export const Menber = loadable(() => import('@/components/menber'))//会员
 export const Meming = loadable(() => import('@/components/meming'))//会员说明
 export const Buy = loadable(() => import('@/components/buy'))//会员购买
+export const Placing = loadable(() => import('@/components/placing'))//下单页面

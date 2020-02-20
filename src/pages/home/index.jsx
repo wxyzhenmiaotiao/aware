@@ -45,7 +45,6 @@ export default class extends Component {
     this.feng(a)
   }
   render() {
-
     return (
       <div className="box">
         <div className="body">
