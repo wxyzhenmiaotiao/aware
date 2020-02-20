@@ -29,6 +29,10 @@ class extends Component {
     this.props.history.push('/buy')
   }
 
+  exchange = () => {
+    this.props.history.push('/exchange')
+  }
+
   render() {
     return (
       <div className="menber_box">
@@ -85,7 +89,7 @@ class extends Component {
               <p className="menber_body_3_bottom_right"><button onClick={this.btn}>购买</button></p>
             </div>
           </div>
-          <div className="menber_body_4">
+          <div onClick={() => this.exchange()} className="menber_body_4">
             <div className="menber_body_4_left">
               兑换会员
             </div>
