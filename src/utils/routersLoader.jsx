@@ -24,3 +24,4 @@ export const Menber = loadable(() => import('@/components/menber'))//会员
 export const Meming = loadable(() => import('@/components/meming'))//会员说明
 export const Buy = loadable(() => import('@/components/buy'))//会员购买
 export const Placing = loadable(() => import('@/components/placing'))//下单页面
+export const Exchange = loadable(() => import('@/components/exchange'))//兑换

@@ -20,7 +20,8 @@ import {
 	Menber,
 	Meming,
 	Buy,
-	Placing
+	Placing,
+	Exchange
 } from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
@@ -29,6 +30,7 @@ export default class extends Component {
 				<BrowserRouter>
 					<Switch>
 						<Route path="/placing" component={Placing}/>
+						<Route path='/exchange' component={Exchange} />
 						<Route path='/buy' component={Buy} />
 						<Route path='/meming' component={Meming} />
 						<Route path='/menber' component={Menber} />
