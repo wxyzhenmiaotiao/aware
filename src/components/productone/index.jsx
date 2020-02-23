@@ -17,45 +17,40 @@ export default class componentName extends Component {
     cartone: ""
   }
   jumpdanzi = () => {
-    let data=this.state.shopcart[0].shopcartlist
-    let arr=[]
-    data.filter(v=>{
-      let a={}
-      a.id=v.specfoods[0].food_id
-      a.name=v.specfoods[0].name
-      a.packing_fee=v.specfoods[0].packing_fee
-      a.price="20"
-      a.quantity=v.shuliang
-      a.sku_id=v.specfoods[0].sku_id
-      a.specs=v.specfoods[0].specs
-      a.stock=v.specfoods[0].stock
-      a.attrs=[]
-      a.extra={}
+    let data = this.state.shopcart[0].shopcartlist
+    let arr = []
+    data.filter(v => {
+      let a = {}
+      a.id = v.specfoods[0].food_id
+      a.name = v.specfoods[0].name
+      a.packing_fee = v.specfoods[0].packing_fee
+      a.price = "20"
+      a.quantity = v.shuliang
+      a.sku_id = v.specfoods[0].sku_id
+      a.specs = v.specfoods[0].specs
+      a.stock = v.specfoods[0].stock
+      a.attrs = []
+      a.extra = {}
       arr.push(a)
     })
-    let b={}
-    let geohash=localStorage.getItem("childone")
-    let garr=geohash.split("&")
-    let str=[]
-    garr.filter(v=>{
+    let b = {}
+    let geohash = localStorage.getItem("childone")
+    let garr = geohash.split("&")
+    let str = []
+    garr.filter(v => {
       str.push(v.split("=")[1])
     })
-    str=str.join(",")
-    let id=this.state.id
-    let arrr=[]
+    str = str.join(",")
+    let id = this.state.id
+    let arrr = []
     arrr.push(arr)
-    b.geohash=str
-    b.entities=arrr
-    b.restaurant_id=id
-    console.log(b)
-    addshop(b).then(res=>{
-      console.log(res)
+    b.geohash = str
+    b.entities = arrr
+    b.restaurant_id = id
+    addshop(b).then(res => {
+      console.log(res.data)
+      this.props.history.push("/placing",res.data)
     })
-    // come_from: "web"
-    // geohash: "32.00935,118.766275"
-    // entities: [[, …]]
-    // restaurant_id: 1
-    // this.props.history.push("/placing")
   }
   componentDidMount() {
     let a = JSON.parse(localStorage.getItem("data"))
