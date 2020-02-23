@@ -48,8 +48,8 @@ export default class componentName extends Component {
     b.entities = arrr
     b.restaurant_id = id
     addshop(b).then(res => {
-      console.log(res.data)
-      this.props.history.push("/placing",res.data)
+      localStorage.setItem("placingdata",JSON.stringify(res.data))
+      this.props.history.push("/placing")
     })
   }
   componentDidMount() {

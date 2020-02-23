@@ -21,7 +21,8 @@ import {
 	Meming,
 	Buy,
 	Placing,
-	Exchange
+	Exchange,
+	Placingaddress
 } from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
@@ -29,6 +30,7 @@ export default class extends Component {
 			<>
 				<BrowserRouter>
 					<Switch>
+						<Route path="/placingaddress" component={Placingaddress}/>
 						<Route path="/placing" component={Placing}/>
 						<Route path='/exchange' component={Exchange} />
 						<Route path='/buy' component={Buy} />
