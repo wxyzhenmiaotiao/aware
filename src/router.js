@@ -22,7 +22,9 @@ import {
 	Buy,
 	Placing,
 	Exchange,
-	Placingaddress
+	Placingaddress,
+	Remarks,
+	Pay
 } from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
@@ -30,6 +32,8 @@ export default class extends Component {
 			<>
 				<BrowserRouter>
 					<Switch>
+						<Route path="/pay" component={Pay}/>
+						<Route path="/remarks" component={Remarks}/>
 						<Route path="/placingaddress" component={Placingaddress}/>
 						<Route path="/placing" component={Placing}/>
 						<Route path='/exchange' component={Exchange} />

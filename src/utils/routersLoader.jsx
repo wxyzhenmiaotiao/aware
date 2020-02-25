@@ -26,3 +26,6 @@ export const Meming = loadable(() => import('@/components/meming'))//会员说�
 export const Buy = loadable(() => import('@/components/buy'))//会员购买
 export const Placing = loadable(() => import('@/components/placing'))//下单页面
 export const Exchange = loadable(() => import('@/components/exchange'))//兑换
+export const Remarks = loadable(() => import('@/components/remarks'))//备注页面
+export const Pay = loadable(() => import('@/components/pay'))//支付页面
+
