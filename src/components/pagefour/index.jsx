@@ -41,6 +41,10 @@ class extends Component {
     this.props.history.push('/menber')
   }
 
+  preferential = () => {
+    this.props.history.push('/preferential')
+  }
+
   loginHou = () => {
     const { image } = this.state
     if (localStorage.getItem('user_id')) {
@@ -95,7 +99,7 @@ class extends Component {
               <p>我的余额</p>
             </div>
           </div>
-          <div className="four_body_3_1">
+          <div onClick={() => this.preferential()} className="four_body_3_1">
             <div className="four_body_3_1_p1">
               <p><span className="four_body_3_1_p1_shu">3</span>个</p>
               <p>我的优惠</p>

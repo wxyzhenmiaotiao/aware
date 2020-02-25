@@ -16,4 +16,5 @@ export default {
 	deleaddress:"http://elm.cangdu.org/v1/users/",//删除收货地址
 	xiadan:"https://elm.cangdu.org/v1/users/",//下单
 	dingdanlist:"https://elm.cangdu.org/bos/v2/users/",//订单列表
+	sponsored:"https://elm.cangdu.org/promotion/v2/users/",//红包
 }

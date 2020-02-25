@@ -20,11 +20,12 @@ import {
 	Menber,
 	Meming,
 	Buy,
+	Preferential,
 	Placing,
 	Exchange,
 	Placingaddress,
 	Remarks,
-	Pay
+	Pay,
 } from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
@@ -34,6 +35,7 @@ export default class extends Component {
 					<Switch>
 						<Route path="/pay" component={Pay}/>
 						<Route path="/remarks" component={Remarks}/>
+						<Route path='/preferential' component={Preferential} />
 						<Route path="/placingaddress" component={Placingaddress}/>
 						<Route path="/placing" component={Placing}/>
 						<Route path='/exchange' component={Exchange} />

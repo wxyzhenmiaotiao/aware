@@ -64,3 +64,7 @@ export function dingdan(data)
 {
 	return get(api.dingdanlist+""+data+"/orders?limit=10&offset=0")
 }
+export function sponsored(id,data,data2)//红包
+{
+	return get(api.sponsored+id+"/hongbaos?limit="+data+"&offset="+data2)
+}
