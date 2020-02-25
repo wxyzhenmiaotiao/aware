@@ -11,4 +11,8 @@ export default {
 	xiangqing:"https://elm.cangdu.org/shopping/restaurant/",//商家详情
 	addshop:"https://elm.cangdu.org/v1/carts/checkout",//加入购物车
 	evaluate:"https://elm.cangdu.org/ugc/v2/restaurants/",//评价的分数
+	addressmessage:"https://elm.cangdu.org/v1/users/",//获取用户收货地址列表
+	addressadd:"https://elm.cangdu.org/v1/users/",//添加收货地址
+	deleaddress:"http://elm.cangdu.org/v1/users/",//删除收货地址
+	sponsored:"https://elm.cangdu.org/promotion/v2/users/",//红包
 }

@@ -21,11 +21,37 @@ export default class componentName extends Component {
           for (let i = 0; i < res1.data.length; i++) {
             arr.push("proleTokele")
           }
+          let arrone=res2.data
+          arrone.filter(v => {
+            if (v.avatar == "") {
+              v.avatar = "//elm.cangdu.org/img/default.jpg"
+            } else {
+              let a = v.avatar
+              a = a.split("")
+              a[0] = a[0] + "/"
+              a[2] = a[2] + "/"
+              a = a.join("")
+              v.avatar = "https://fuss10.elemecdn.com/" + a + ".jpeg"
+            }
+            if (v.item_ratings.length != 0) {
+              v.item_ratings.filter(k => {
+                if (k.image_hash != "") {
+                  let a = k.image_hash
+                  a = a.split("")
+                  a[0] = a[0] + "/"
+                  a[2] = a[2] + "/"
+                  a = a.join("")
+                  k.image_hash = "https://fuss10.elemecdn.com/" + a + ".jpeg"
+                }
+              })
+            }
+          })
           this.setState({
-            list: res2.data,
+            list: arrone,
             lei: res1.data,
             fen: res.data,
-            classarr: arr
+            classarr: arr,
+            listarr:arrone
           })
         })
       })
@@ -43,15 +69,16 @@ export default class componentName extends Component {
       classarr: arr1
     })
   }
-  // https://fuss10.elemecdn.com/1/5f/6cf782b0c9cd5ca8daa7f76ab05aejpeg.jpeg
-  //https://fuss10.elemecdn.com/5/38/8b26ad173389d89e0e015dbf295fcjpeg.jpeg
-  //https://fuss10.elemecdn.com/d/c8/64033625905f0a15a2d181d53a425jpeg.jpeg
   loadFunc = () => {
-    console.log("1111111111")
+    let arr=this.state.list
+    let arr1=this.state.listarr
+    let arr2=[...arr,...arr1]
+    this.setState({
+      list:arr2
+    })
   }
   render() {
     const { fen, list, lei, classarr } = this.state
-    console.log(list)
     return (
       <div className="evaluateBox">
         {
@@ -82,16 +109,68 @@ export default class componentName extends Component {
                 })
               }
             </div>
-            {/* <InfiniteScroll
+            <InfiniteScroll
               pageStart={0}
               loadMore={this.loadFunc}
               hasMore={true}
-              loader={<div className="loaderLoading" key={0}><Spin/><span className="loadingSpan">Loading</span></div>}
+              loader={<div className="loaderLoading" key={0}><Spin /><span className="loadingSpan">Loading</span></div>}
               useWindow={false}
-              threshold="-170"
+              threshold="-300"
             >
-              
-            </InfiniteScroll> */}
+              {
+                list.map((v, i) => {
+                  return <div key={i} className="propleT">
+                    <div className="propleleft">
+                      <div className="propleImg">
+                        <img src={v.avatar} alt="" />
+                      </div>
+                    </div>
+                    <div className="proleriight">
+                      <p className="usernameoneuu">
+                        <span>
+                          {
+                            v.username
+                          }
+                        </span>
+                        <span style={{ marginRight: "0.2rem" }}>
+                          {
+                            v.rated_at
+                          }
+                        </span>
+                      </p>
+                      <div className="stttt">
+                        <Start data={v.rating_star} />
+                        <span className="anTimeone">
+                          {
+                            v.time_spent_desc
+                          }
+                        </span>
+                      </div>
+                      {
+                        v.item_ratings.length != 0 ? <div className="caiImg">
+                          {
+                            v.item_ratings.map((k, p) => {
+                              if (k.image_hash != "") {
+                                return <img key={p} className="propeleImgg" src={k.image_hash} alt="" />
+                              }
+                            })
+                          }
+                        </div> : null
+                      }
+                      {
+                        v.item_ratings.length != 0 ? <div className="nameCai">
+                          {
+                            v.item_ratings.map((k, p) => {
+                            return <p className="foodname" key={p}>{k.food_name}</p>
+                            })
+                          }
+                        </div> : null
+                      }
+                    </div>
+                  </div>
+                })
+              }
+            </InfiniteScroll>
           </div> : null
         }
 

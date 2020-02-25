@@ -27,3 +27,4 @@ export const Exchange = loadable(() => import('@/components/exchange'))//兑换
 export const Preferential = loadable(() => import('@/components/preferential'))//红包
 export const Preferential_left = loadable(() => import('@/components/preferential_left'))//红包1
 export const Preferential_right = loadable(() => import('@/components/preferential_right'))//红包2
+export const Placing = loadable(() => import('@/components/placing'))//下单页面

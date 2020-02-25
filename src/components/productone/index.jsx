@@ -9,7 +9,48 @@ export default class componentName extends Component {
     id: "",
     shopcart: [],
     dis: "none",
-    pir: "0.00"
+    pir: "0.00",
+    shopone: "",
+    xuanze: "xuanzecang",
+    shoponeclass: [],
+    skuid: "",
+    cartone: ""
+  }
+  jumpdanzi = () => {
+    let data = this.state.shopcart[0].shopcartlist
+    let arr = []
+    data.filter(v => {
+      let a = {}
+      a.id = v.specfoods[0].food_id
+      a.name = v.specfoods[0].name
+      a.packing_fee = v.specfoods[0].packing_fee
+      a.price = "20"
+      a.quantity = v.shuliang
+      a.sku_id = v.specfoods[0].sku_id
+      a.specs = v.specfoods[0].specs
+      a.stock = v.specfoods[0].stock
+      a.attrs = []
+      a.extra = {}
+      arr.push(a)
+    })
+    let b = {}
+    let geohash = localStorage.getItem("childone")
+    let garr = geohash.split("&")
+    let str = []
+    garr.filter(v => {
+      str.push(v.split("=")[1])
+    })
+    str = str.join(",")
+    let id = this.state.id
+    let arrr = []
+    arrr.push(arr)
+    b.geohash = str
+    b.entities = arrr
+    b.restaurant_id = id
+    addshop(b).then(res => {
+      console.log(res.data)
+      this.props.history.push("/placing",res.data)
+    })
   }
   componentDidMount() {
     let a = JSON.parse(localStorage.getItem("data"))
@@ -38,7 +79,6 @@ export default class componentName extends Component {
           shopcart: arr
         })
       }
-
     }
     this.setState({
       data: a.two,
@@ -104,8 +144,12 @@ export default class componentName extends Component {
             let sum = 0
             data1.filter(k => {
               if (k.name == nameone.name) {
-                k.shuliang = k.shuliang + 1
-                localStorage.setItem("shopcart", JSON.stringify(data))
+                if (k.specfoods[0].specs_name == nameone.specfoods[0].specs_name) {
+                  k.shuliang = k.shuliang + 1
+                  localStorage.setItem("shopcart", JSON.stringify(data))
+                } else {
+                  sum++
+                }
               } else {
                 sum++
               }
@@ -151,7 +195,7 @@ export default class componentName extends Component {
     if (shop[0]) {
       let data = JSON.parse(localStorage.getItem("shopcart"))
       let arr = []
-      let id=shop[0].shopid
+      let id = shop[0].shopid
       data.filter(v => {
         if (v.shopid != id) {
           arr.push(v)
@@ -161,36 +205,18 @@ export default class componentName extends Component {
       this.componentDidMount()
       this.dis()
       this.suan(id)
-    }else{
+    } else {
       this.dis()
     }
   }
-  addmoney = (name, id) => {
+  addmoney = (name, id, names) => {
     let data = JSON.parse(localStorage.getItem("shopcart"))
     data.filter(v => {
       if (v.shopid == id) {
         v.shopcartlist.filter(k => {
           if (k.name == name) {
-            k.shuliang = k.shuliang + 1
-          }
-        })
-      }
-    })
-    localStorage.setItem("shopcart", JSON.stringify(data))
-    this.componentDidMount()
-    this.suan(id)
-  }
-  seldel = (name, id) => {
-    let data = JSON.parse(localStorage.getItem("shopcart"))
-    data.filter(v => {
-      if (v.shopid == id) {
-        v.shopcartlist.filter((k, i) => {
-          if (k.name == name) {
-            let sum = k.shuliang
-            if (sum - 1 == 0) {
-              v.shopcartlist.splice(i, 1)
-            } else {
-              k.shuliang = sum - 1
+            if (k.specfoods[0].specs_name == names) {
+              k.shuliang = k.shuliang + 1
             }
           }
         })
@@ -200,14 +226,111 @@ export default class componentName extends Component {
     this.componentDidMount()
     this.suan(id)
   }
+  seldel = (name, id, names) => {
+    let data = JSON.parse(localStorage.getItem("shopcart"))
+    data.filter(v => {
+      if (v.shopid == id) {
+        v.shopcartlist.filter((k, i) => {
+          if (k.name == name) {
+            if (k.specfoods[0].specs_name == names) {
+              let sum = k.shuliang
+              if (sum - 1 == 0) {
+                v.shopcartlist.splice(i, 1)
+              } else {
+                k.shuliang = sum - 1
+              }
+            }
+
+          }
+        })
+      }
+    })
+    localStorage.setItem("shopcart", JSON.stringify(data))
+    this.componentDidMount()
+    this.suan(id)
+  }
+  disxuan = (v) => {
+    let sum = v.specfoods.length
+    let arr = []
+    for (let i = 0; i < sum; i++) {
+      arr.push("")
+    }
+    arr[0] = "kongpp"
+    this.setState({
+      xuanze: "xuanze",
+      shopone: v,
+      skuid: v.specfoods[0].sku_id,
+      shoponeclass: arr
+    })
+  }
+  none = () => {
+    this.setState({
+      xuanze: "xuanzecang"
+    })
+  }
+  xuanzhongle = (i, id) => {
+    let arr = this.state.shoponeclass
+    for (let i = 0; i < arr.length; i++) {
+      arr[i] = ""
+    }
+    arr[i] = "kongpp"
+    this.setState({
+      shoponeclass: arr,
+      skuid: id
+    })
+  }
+  jiaru = () => {
+    let id = this.state.skuid
+    let a = JSON.parse(JSON.stringify(this.state.shopone))
+    a.specfoods.filter((v, i) => {
+      if (v.sku_id != id) {
+        a.specfoods.splice(i, 1)
+      }
+    })
+    this.add(a)
+    this.none()
+  }
   render() {
-    const { data, shopcart } = this.state
+    const { data, shopcart, shopone } = this.state
     return (
       <div className="bxoaaaa">
+        <div className={this.state.xuanze} >
+          <div className="xuanze1">
+            <div className="xuzntop">
+              {
+                shopone.name
+              }
+              <div className="chaPOistion" onClick={this.none}>
+                ×
+                </div>
+            </div>
+
+            {
+              shopone == "" ? null : <div className="xin">
+                <span>规格</span>
+                <div>
+                  {
+                    shopone.specfoods.map((v, i) => {
+                      return <p key={i} className={this.state.shoponeclass[i]} onClick={() => this.xuanzhongle(i, v.sku_id)}>{v.specs_name}</p>
+                    })
+                  }
+                </div>
+              </div>
+
+            }
+            <div className="xuanzeFoot">
+              <p>
+                ¥20
+                </p>
+              <div>
+                <button onClick={this.jiaru}>加入购物车</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="shangTop">
           <div className="fixedzhezhao" style={{ display: `${this.state.dis}` }}>
             <div className="fiexedFlex" onClick={this.dis}>
-
             </div>
             <div className="listcart" >
               <p>
@@ -219,16 +342,26 @@ export default class componentName extends Component {
                   return <div className="shopcartRow" key={i}>
                     <div className="namep"> {
                       v.name
-                    }</div>
+
+                    }
+                      <br />
+                      <span style={{ fontSize: "0.2rem" }}>
+                        (
+                      {
+                          v.specfoods[0].specs_name
+                        }
+                        )
+                    </span>
+                    </div>
                     <div className="pirdiv">
                       ¥20
                       </div>
                     <div className="adddel">
-                      <Icon type="minus-circle" onClick={() => this.seldel(v.name, shopcart[0].shopid)} />
+                      <Icon type="minus-circle" onClick={() => this.seldel(v.name, shopcart[0].shopid, v.specfoods[0].specs_name)} />
                       {
                         v.shuliang
                       }
-                      <Icon type="plus-circle" onClick={() => this.addmoney(v.name, shopcart[0].shopid)} />
+                      <Icon type="plus-circle" onClick={() => this.addmoney(v.name, shopcart[0].shopid, v.specfoods[0].specs_name)} />
                     </div>
                   </div>
                 }) : null
@@ -263,7 +396,7 @@ export default class componentName extends Component {
                             <p className="cccccccc">月销售{k.month_sales}份 好评率{k.satisfy_rate}%</p>
                             <p className="lastPirbox"><span><span className="lastPirboxspanone">¥20</span>起</span><span className="lastPirboxiop">
                               {
-                                k.specifications.length != 0 ? <span className="guigee">规格</span> : <Icon
+                                k.specifications.length != 0 ? <span className="guigee" onClick={() => this.disxuan(k)}>规格</span> : <Icon
                                   onClick={() => this.add(k)} type="plus-circle" style={{ fontSize: "0.3rem" }} />
                               }
                             </span></p>
@@ -291,10 +424,10 @@ export default class componentName extends Component {
             </div>
           </div>
           {
-            this.state.pir>=20?<div className="lastMoneyjiesuan">
-            去结算
-                </div>:<div className="qisong">
-                  还差20起送
+            this.state.pir >= 20 ? <div className="lastMoneyjiesuan" onClick={this.jumpdanzi}>
+              去结算
+                </div> : <div className="qisong">
+                还差20起送
           </div>
           }
         </div>

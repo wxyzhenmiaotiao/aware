@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import './styles.less'
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { addressadd ,} from "@/api/actions"
+import { Form, Icon, Input, Button, Checkbox , message} from 'antd';
 import { connect } from 'react-redux'
-
-
+import './styles.less'
 export default @connect(state => {
   return {
-    data : state.data
+    data: state.data
   }
 })
 @Form.create({ name: 'normal_login' })
@@ -15,17 +14,36 @@ class extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        let id = localStorage.getItem("user_id")
+        let a=localStorage.getItem("childone")
+        a=a.split("&")
+        let arr=[]
+        a.filter(v=>{
+          arr.push(v.split("=")[1])
+        })
+        arr=arr.join(",")
+        values.geohash= arr
+        values.phone_bk= ""
+        values.poi_type= 0
+        values.sex= 1
+        values.tag= "公司"
+        values.tag_type= 4
+        addressadd(id,values).then(res=>{
+          message.success("添加成功")
+        })
       }
     });
-  };
-
+  }
+  back=()=>{
+    this.props.history.go(-1)
+  }
   render() {
+   
     const { getFieldDecorator } = this.props.form;
     return (
       <div className="address_body">
         <div className="address_body_head">
-          <div className="address_body_head_left">
+          <div className="address_body_head_left" onClick={this.back}> 
             <span>{'<'}</span>
           </div>
           <div className="address_body_head_right">
@@ -46,7 +64,7 @@ class extends Component {
                 )}
               </Form.Item>
               <Form.Item>
-                {getFieldDecorator('community', {
+                {getFieldDecorator('address', {
                   rules: [{ required: true, message: '小区名不能为空' }],
                 })(
                   <Input
@@ -56,7 +74,7 @@ class extends Component {
                 )}
               </Form.Item>
               <Form.Item>
-                {getFieldDecorator('detailed', {
+                {getFieldDecorator('address_detail', {
                   rules: [{ required: true, message: '详细地址不能为空' }],
                 })(
                   <Input
@@ -66,8 +84,8 @@ class extends Component {
                 )}
               </Form.Item>
               <Form.Item>
-                {getFieldDecorator('detailed', {
-                  rules: [{ required: true, message: '详细地址不能为空' }],
+                {getFieldDecorator('phone', {
+                  rules: [{ required: true, message: '电话不可为空' }],
                 })(
                   <Input
                     prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}

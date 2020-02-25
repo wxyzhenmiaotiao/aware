@@ -1,4 +1,5 @@
 import { get , post} from '@/utils/request'
+import axios from "axios"
 import api from './api'
 
 export function childone(data) {
@@ -42,4 +43,20 @@ export function evalualei(data){//获取评价的种类
 }
 export function evalualist(data,data1,data2){//获取评价的信息列表
 	return get(api.evaluate+""+data+"/ratings?offset="+data1+"&limit="+data2+"&has_content=true")
+}
+export function address(data)
+{
+	return get(api.addressmessage+""+data+"/addresses")
+}
+export function addressadd(data,data2)
+{
+	return post(api.addressadd+""+data+"/addresses",data2)
+}
+export function deleaddress(data,data2)
+{
+	return axios.delete(api.deleaddress+""+data+"/addresses/"+data2)
+}
+export function sponsored(id,data,data2)//红包
+{
+	return get(api.sponsored+id+"/hongbaos?limit="+data+"&offset="+data2)
 }
