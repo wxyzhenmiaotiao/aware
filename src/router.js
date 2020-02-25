@@ -20,9 +20,15 @@ import {
 	Menber,
 	Meming,
 	Buy,
+<<<<<<< HEAD
 	Exchange,
 	Preferential,
 	Placing
+=======
+	Placing,
+	Exchange,
+	Placingaddress
+>>>>>>> 1015eacfa39442619451b46591d5c32d7e95ee32
 } from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
@@ -30,7 +36,11 @@ export default class extends Component {
 			<>
 				<BrowserRouter>
 					<Switch>
+<<<<<<< HEAD
 						<Route path='/preferential' component={Preferential} />
+=======
+						<Route path="/placingaddress" component={Placingaddress}/>
+>>>>>>> 1015eacfa39442619451b46591d5c32d7e95ee32
 						<Route path="/placing" component={Placing}/>
 						<Route path='/exchange' component={Exchange} />
 						<Route path='/buy' component={Buy} />
