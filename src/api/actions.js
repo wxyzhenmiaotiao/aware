@@ -56,6 +56,14 @@ export function deleaddress(data,data2)
 {
 	return axios.delete(api.deleaddress+""+data+"/addresses/"+data2)
 }
+export function xiadan(data,data2,data3)
+{
+	return post(api.xiadan+""+data+"/carts/"+data2+"/orders",data3)
+}
+export function dingdan(data)
+{
+	return get(api.dingdanlist+""+data+"/orders?limit=10&offset=0")
+}
 export function sponsored(id,data,data2)//红包
 {
 	return get(api.sponsored+id+"/hongbaos?limit="+data+"&offset="+data2)

@@ -25,8 +25,13 @@ export const Menber = loadable(() => import('@/components/menber'))//会员
 export const Meming = loadable(() => import('@/components/meming'))//会员说明
 export const Buy = loadable(() => import('@/components/buy'))//会员购买
 export const Exchange = loadable(() => import('@/components/exchange'))//兑换
+export const Remarks = loadable(() => import('@/components/remarks'))//备注页面
+export const Pay = loadable(() => import('@/components/pay'))//支付页面
 export const Preferential = loadable(() => import('@/components/preferential'))//红包
 export const Preferential_left = loadable(() => import('@/components/preferential_left'))//红包1
 export const Preferential_right = loadable(() => import('@/components/preferential_right'))//红包2
 export const Placing = loadable(() => import('@/components/placing'))//下单页面
+<<<<<<< HEAD
 export const DescriptionThe = loadable(() => import('@/components/descriptionThe'))//红包说明
+=======
+>>>>>>> 3941dd70974e63dadfd9763b30c32c822cbc4a99
