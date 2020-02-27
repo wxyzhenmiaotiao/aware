@@ -24,7 +24,7 @@ export default class componentName extends Component {
     })
   }
   back = () => {
-    this.props.history.go(-1)
+    this.props.history.push("/home")
   }
   close = () => {
     this.setState({
