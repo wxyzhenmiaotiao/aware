@@ -101,6 +101,9 @@ export default class componentName extends Component {
       this.props.history.push("/pay")
     })
   }
+  back=()=>{
+    this.props.history.push("/Product")
+  }
   render() {
     const { data, userdata } = this.state
     return (
@@ -124,7 +127,7 @@ export default class componentName extends Component {
           </div>
         </div>
         <div className="placingtop">
-          <p><Icon type="left" /></p>
+          <p onClick={this.back}><Icon type="left" /></p>
           <div>确认订单</div>
           <p onClick={this.wode}><Icon type="user" /></p>
         </div>

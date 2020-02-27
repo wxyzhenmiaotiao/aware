@@ -31,4 +31,8 @@ export const Preferential = loadable(() => import('@/components/preferential'))/
 export const Preferential_left = loadable(() => import('@/components/preferential_left'))//红包1
 export const Preferential_right = loadable(() => import('@/components/preferential_right'))//红包2
 export const Placing = loadable(() => import('@/components/placing'))//下单页面
+<<<<<<< HEAD
 export const DescriptionThe = loadable(() => import('@/components/descriptionThe'))//红包说明
+=======
+export const DescriptionThe = loadable(() => import('@/components/descriptionThe'))//红包说明
+>>>>>>> 3d83f6e51f8d7eab9e72bc24924b29ffbf72db2e
