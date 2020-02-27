@@ -24,12 +24,9 @@ import {
 	Placing,
 	Exchange,
 	Placingaddress,
-<<<<<<< HEAD
-	DescriptionThe
-=======
+	DescriptionThe,
 	Remarks,
 	Pay,
->>>>>>> 3941dd70974e63dadfd9763b30c32c822cbc4a99
 } from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
@@ -37,12 +34,9 @@ export default class extends Component {
 			<>
 				<BrowserRouter>
 					<Switch>
-<<<<<<< HEAD
 						<Route path='/descriptionThe' component={DescriptionThe} />
-=======
 						<Route path="/pay" component={Pay}/>
 						<Route path="/remarks" component={Remarks}/>
->>>>>>> 3941dd70974e63dadfd9763b30c32c822cbc4a99
 						<Route path='/preferential' component={Preferential} />
 						<Route path="/placingaddress" component={Placingaddress}/>
 						<Route path="/placing" component={Placing}/>
