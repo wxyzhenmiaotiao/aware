@@ -27,6 +27,7 @@ import {
 	DescriptionThe,
 	Remarks,
 	Pay,
+	Integral
 } from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
@@ -34,6 +35,7 @@ export default class extends Component {
 			<>
 				<BrowserRouter>
 					<Switch>
+						<Route path='/integral' component={Integral} />
 						<Route path='/descriptionThe' component={DescriptionThe} />
 						<Route path="/pay" component={Pay}/>
 						<Route path="/remarks" component={Remarks}/>
