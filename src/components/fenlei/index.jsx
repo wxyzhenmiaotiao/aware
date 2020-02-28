@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 export default class componentName extends Component {
   jumpSort=(v)=>{
-    console.log(v)
+    localStorage.setItem("namefenlei",v.title)
+    this.props.history.push("/ofclassifications")
   }
   render() {
     const data=this.props.data

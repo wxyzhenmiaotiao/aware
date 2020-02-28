@@ -75,7 +75,7 @@ export default class extends Component {
                   return <div key={index} className="insidebox">
                         {
                           a.map((v,index)=>{
-                            return <Fen key={index} data={v}/>
+                            return <Fen key={index} {...this.props} data={v}/>
                           })
                         }
                   </div>

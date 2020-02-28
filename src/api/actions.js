@@ -68,3 +68,7 @@ export function sponsored(id,data,data2)//红包
 {
 	return get(api.sponsored+id+"/hongbaos?limit="+data+"&offset="+data2)
 }
+export function fenlist(data)//分类列表
+{
+	return get(api.fenlist+""+data)
+}

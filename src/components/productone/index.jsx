@@ -43,6 +43,13 @@ export default class componentName extends Component {
     str = str.join(",")
     let id = this.state.id
     let arrr = []
+    arr.filter(v=>{
+      if(v.specs.length>0)
+      {
+        let str=v.specs[0].value
+        v.specs=[str]
+      }
+    })
     arrr.push(arr)
     b.geohash = str
     b.entities = arrr

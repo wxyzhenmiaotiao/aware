@@ -27,6 +27,7 @@ import {
 	DescriptionThe,
 	Remarks,
 	Pay,
+	Ofclassifications
 } from "@/utils/routersLoader"
 export default class extends Component {
 	render() {
@@ -34,6 +35,7 @@ export default class extends Component {
 			<>
 				<BrowserRouter>
 					<Switch>
+						<Route path='/ofclassifications' component={Ofclassifications} />
 						<Route path='/descriptionThe' component={DescriptionThe} />
 						<Route path="/pay" component={Pay}/>
 						<Route path="/remarks" component={Remarks}/>
