@@ -44,6 +44,10 @@ class extends Component {
   preferential = () => {
     this.props.history.push('/preferential')
   }
+  
+  integral = () => {
+    this.props.history.push('/integral')
+  }
 
   loginHou = () => {
     const { image } = this.state
@@ -105,7 +109,7 @@ class extends Component {
               <p>我的优惠</p>
             </div>
           </div>
-          <div className="four_body_3_1">
+          <div onClick={this.integral} className="four_body_3_1">
             <div className="four_body_3_1_p1">
               <p><span className="four_body_3_1_p1_fen">0</span>分</p>
               <p>我的积分</p>

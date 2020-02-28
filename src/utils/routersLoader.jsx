@@ -33,3 +33,4 @@ export const Preferential_right = loadable(() => import('@/components/preferenti
 export const Placing = loadable(() => import('@/components/placing'))//下单页面
 export const DescriptionThe = loadable(() => import('@/components/descriptionThe'))//红包说明
 export const Ofclassifications = loadable(() => import('@/components/ofclassifications'))//轮播图分类
+export const Integral = loadable(() => import('@/components/integral'))//红包说明
